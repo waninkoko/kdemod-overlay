@@ -1,0 +1,273 @@
+# ChangeLog for kde-base/dolphin
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/ChangeLog,v 1.56 2009/12/10 19:29:35 abcd Exp $
+
+  10 Dec 2009; Jonathan Callen <abcd@gentoo.org>
+  -files/dolphin-4.3.1-fix-sftp-crash.patch:
+  Drop old patch
+
+  10 Dec 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  -dolphin-4.3.1-r1.ebuild:
+  Drop KDE SC-4.3.1.
+
+  10 Dec 2009; Christian Faulhammer <fauli@gentoo.org> dolphin-4.3.3.ebuild:
+  x86 stable, bug 292455
+
+*dolphin-4.3.4 (01 Dec 2009)
+
+  01 Dec 2009; Alex Alexander <wired@gentoo.org> +dolphin-4.3.4.ebuild:
+  Version bump
+
+  30 Nov 2009; Joseph Jezak <josejx@gentoo.org> dolphin-4.3.3.ebuild:
+  Marked ppc/ppc64 stable for bug #292455.
+
+  29 Nov 2009; Raúl Porcel <armin76@gentoo.org> dolphin-4.3.3.ebuild:
+  Add ~sparc
+
+  29 Nov 2009; Samuli Suominen <ssuominen@gentoo.org> dolphin-4.3.3.ebuild:
+  amd64 stable wrt #292455
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.3.2-r1.ebuild:
+  Drop KDE 4.3.2
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.2.4-r2.ebuild:
+  Drop KDE 4.2.4
+
+*dolphin-4.3.3 (02 Nov 2009)
+
+  02 Nov 2009; Alex Alexander <wired@gentoo.org> +dolphin-4.3.3.ebuild:
+  Version bump
+
+  18 Oct 2009; Markus Meier <maekke@gentoo.org> dolphin-4.3.1-r1.ebuild:
+  x86 stable, bug #287697
+
+  10 Oct 2009; Samuli Suominen <ssuominen@gentoo.org>
+  dolphin-4.3.1-r1.ebuild:
+  amd64 stable wrt #287697
+
+*dolphin-4.3.2-r1 (09 Oct 2009)
+*dolphin-4.3.1-r1 (09 Oct 2009)
+
+  09 Oct 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  -dolphin-4.3.1.ebuild, +dolphin-4.3.1-r1.ebuild,
+  +files/dolphin-4.3.1-fix-sftp-crash.patch, -dolphin-4.3.2.ebuild,
+  +dolphin-4.3.2-r1.ebuild:
+  Revision bump to backport patches. Move from kde-testing.
+
+  08 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.3.0-r1.ebuild:
+  Drop KDE 4.3.0
+
+*dolphin-4.3.2 (06 Oct 2009)
+
+  06 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.3.2.ebuild:
+  Version bump
+
+*dolphin-4.3.1 (01 Sep 2009)
+
+  01 Sep 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  +dolphin-4.3.1.ebuild:
+  Version bump
+
+*dolphin-4.3.0-r1 (06 Aug 2009)
+*dolphin-4.2.4-r2 (06 Aug 2009)
+
+  06 Aug 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  -dolphin-4.2.4-r1.ebuild, +dolphin-4.2.4-r2.ebuild, -dolphin-4.3.0.ebuild,
+  +dolphin-4.3.0-r1.ebuild:
+  Add keditfiletype in 4.2.4 version and konqueror in 4.3.0 in RDEPEND of
+  dolphin, bug 246228
+
+  03 Aug 2009; Alex Alexander <wired@gentoo.org> dolphin-4.3.0.ebuild:
+  4.3 keywords update
+
+*dolphin-4.3.0 (03 Aug 2009)
+
+  03 Aug 2009; Alex Alexander <wired@gentoo.org> +dolphin-4.3.0.ebuild:
+  Version bump
+
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -files/dolphin-4.0.2-linkage.patch,
+  -files/dolphin-4.0.2-make-semantic-desktop-optional.patch:
+  Clean unneeded patches
+
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.2.3.ebuild,
+  -dolphin-4.2.3-r1.ebuild:
+  Drop KDE 4.2.3
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> ChangeLog:
+  Fix accidently added keywords
+
+*dolphin-4.2.4-r1 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.2.4-r1.ebuild:
+  Version bump
+
+  03 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.2.2.ebuild,
+  -dolphin-4.2.2-r1.ebuild:
+  Drop KDE 4.2.2
+
+*dolphin-4.2.3-r1 (31 May 2009)
+*dolphin-4.2.2-r1 (31 May 2009)
+
+  31 May 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  +dolphin-4.2.2-r1.ebuild, +dolphin-4.2.3-r1.ebuild:
+  Revision bump, remove blocker of kde-misc/dolphin:3.5
+
+*dolphin-4.2.3 (06 May 2009)
+
+  06 May 2009; Tomas Chvatal <scarabeus@gentoo.org> +dolphin-4.2.3.ebuild:
+  Version bump
+
+  17 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> dolphin-4.2.2:
+  Restore ~hppa keywords
+
+  16 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.2.1.ebuild,
+  -dolphin-4.2.1-r1.ebuild:
+  Drop KDE 4.2.1
+
+*dolphin-4.2.2 (11 Apr 2009)
+
+  11 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.2.2.ebuild:
+  Add KDE 4.2.2
+
+  11 Apr 2009; Raúl Porcel <armin76@gentoo.org> dolphin-4.2.1-r1.ebuild:
+  Add ~alpha/~ia64 wrt #260777
+
+  11 Apr 2009; Jeroen Roovers <jer@gentoo.org> dolphin-4.2.1-r1.ebuild:
+  Marked ~hppa (bug #260777).
+
+*dolphin-4.2.1-r1 (16 Mar 2009)
+
+  16 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org> metadata.xml,
+  +dolphin-4.2.1-r1.ebuild:
+  kde-testing merge: commit not commited stuff due to missing deps.
+
+  08 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.2.0.ebuild:
+  Drop KDE 4.2.0
+
+*dolphin-4.2.1 (04 Mar 2009)
+
+  04 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.2.1.ebuild:
+  Bump KDE 4.2.1
+
+  28 Feb 2009; Markus Meier <maekke@gentoo.org> metadata.xml:
+  semantic-desktop is a global USE-flag
+
+  17 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.1.4.ebuild:
+  Drop KDE 4.1.4
+
+  01 Feb 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  dolphin-4.2.0.ebuild:
+  Restored ~ppc and ~ppc64 keywords to KDE-4.2.0
+
+*dolphin-4.2.0 (27 Jan 2009)
+
+  27 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.2.0.ebuild:
+  Bump KDE-4.2.0
+
+  14 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> -dolphin-4.1.2.ebuild,
+  -dolphin-4.1.3.ebuild:
+  Drop KDE 4.1.2 and 4.1.3
+
+*dolphin-4.1.4 (13 Jan 2009)
+
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org> +dolphin-4.1.4.ebuild:
+  Bump to 4.1.4
+
+  07 Dec 2008; Patrick Lauer <patrick@gentoo.org> dolphin-4.1.3.ebuild:
+  Adding kde-base/kdebase-data to DEPEND, closes #247984
+
+  15 Nov 2008; Mike Frysinger <vapier@gentoo.org> dolphin-4.1.3.ebuild:
+  Add ppc/ppc64 love #244306.
+
+*dolphin-4.1.3 (09 Nov 2008)
+
+  09 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org> +dolphin-4.1.3.ebuild:
+  Version bump.
+
+  21 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -dolphin-4.0.4.ebuild, -dolphin-4.0.5.ebuild:
+  Removing KDE-4.0.X packages now that 4.1.2 was put in the tree.
+
+*dolphin-4.1.2 (02 Oct 2008)
+
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  metadata.xml, +dolphin-4.1.2.ebuild:
+  Add kde-4.1.2 into the tree from the kde-testing overlay.
+
+  09 Jun 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  -dolphin-4.0.2.ebuild, -dolphin-4.0.3.ebuild:
+  Removed old versions.
+
+*dolphin-4.0.5 (05 Jun 2008)
+
+  05 Jun 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  +dolphin-4.0.5.ebuild:
+  Added the KDE 4.0.5 version of dolphin.
+
+  30 May 2008; Bo Ørsted Andresen <zlin@gentoo.org> dolphin-4.0.4.ebuild:
+  KDE4_BUILT_WITH_USE_CHECK is now always an array. Bug #216863.
+
+*dolphin-4.0.4 (15 May 2008)
+
+  15 May 2008; Ingmar Vanhassel <ingmar@gentoo.org> +dolphin-4.0.4.ebuild:
+  Added KDE 4.0.4 version of dolphin. Thanks to Jorge Manuel B. S. Vicetto.
+
+*dolphin-4.0.3 (03 Apr 2008)
+
+  03 Apr 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +dolphin-4.0.3.ebuild:
+  Version bump to KDE 4.0.3. This is still not intended for mainstream so DO
+  NOT KEYWORD IT without talking to the KDE herd first.
+
+  20 Mar 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/dolphin-4.0.1-linkage.patch,
+  -files/dolphin-4.0.1-make-semantic-desktop-optional.patch,
+  -dolphin-4.0.1.ebuild:
+  Old.
+
+  20 Mar 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/dolphin-4.0.1-linkage.patch,
+  -files/dolphin-4.0.1-make-semantic-desktop-optional.patch,
+  -dolphin-4.0.1.ebuild:
+  Old.
+
+  20 Mar 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/dolphin-4.0.1-linkage.patch,
+  -files/dolphin-4.0.1-make-semantic-desktop-optional.patch,
+  -dolphin-4.0.1.ebuild:
+  Old.
+
+*dolphin-4.0.2 (10 Mar 2008)
+
+  10 Mar 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +files/dolphin-4.0.2-linkage.patch,
+  +files/dolphin-4.0.2-make-semantic-desktop-optional.patch,
+  +dolphin-4.0.2.ebuild:
+  Version bump to KDE 4.0.2
+
+  16 Feb 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/dolphin-4.0.0-linkage.patch,
+  -files/dolphin-4.0.0-make-semantic-desktop-optional.patch,
+  -dolphin-4.0.0.ebuild:
+  Spring cleaning
+
+*dolphin-4.0.1 (06 Feb 2008)
+
+  06 Feb 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +files/dolphin-4.0.1-linkage.patch,
+  +files/dolphin-4.0.1-make-semantic-desktop-optional.patch,
+  +dolphin-4.0.1.ebuild:
+  Version bump to KDE 4.0.1.
+
+  18 Jan 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +files/dolphin-4.0.0-linkage.patch,
+  +files/dolphin-4.0.0-make-semantic-desktop-optional.patch:
+  Added patches.
+
+*dolphin-4.0.0 (17 Jan 2008)
+
+  17 Jan 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +dolphin-4.0.0.ebuild:
+  Added KDE 4.0.0's dolphin.
+

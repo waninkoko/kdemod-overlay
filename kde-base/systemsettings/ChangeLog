@@ -1,0 +1,298 @@
+# ChangeLog for kde-base/systemsettings
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/systemsettings/ChangeLog,v 1.58 2009/12/11 00:07:08 scarabeus Exp $
+
+  11 Dec 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  -systemsettings-4.3.1.ebuild:
+  Drop KDE SC-4.3.1.
+
+  10 Dec 2009; Christian Faulhammer <fauli@gentoo.org>
+  systemsettings-4.3.3.ebuild:
+  x86 stable, bug 292455
+
+*systemsettings-4.3.4 (01 Dec 2009)
+
+  01 Dec 2009; Alex Alexander <wired@gentoo.org>
+  +systemsettings-4.3.4.ebuild:
+  Version bump
+
+  30 Nov 2009; Joseph Jezak <josejx@gentoo.org> systemsettings-4.3.3.ebuild:
+  Marked ppc/ppc64 stable for bug #292455.
+
+  29 Nov 2009; Raúl Porcel <armin76@gentoo.org>
+  systemsettings-4.3.3.ebuild:
+  Add ~sparc
+
+  29 Nov 2009; Samuli Suominen <ssuominen@gentoo.org>
+  systemsettings-4.3.3.ebuild:
+  amd64 stable wrt #292455
+
+  09 Nov 2009; Jonathan Callen <abcd@gentoo.org>
+  -files/10_xklavier_adaptor_fix.patch,
+  -files/systemsettings-4.2.1-kxkb-strip-hot_plugging-support.patch:
+  Drop unneeded patches
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.3.2.ebuild:
+  Drop KDE 4.3.2
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.4.ebuild:
+  Drop KDE 4.2.4
+
+*systemsettings-4.3.3 (02 Nov 2009)
+
+  02 Nov 2009; Alex Alexander <wired@gentoo.org>
+  +systemsettings-4.3.3.ebuild:
+  Version bump
+
+  23 Oct 2009; Samuli Suominen <ssuominen@gentoo.org>
+  systemsettings-4.3.2.ebuild:
+  Remove gtk-engines-kde4 reference wrt #241248.
+
+  18 Oct 2009; Markus Meier <maekke@gentoo.org> systemsettings-4.3.1.ebuild:
+  x86 stable, bug #287697
+
+  10 Oct 2009; Samuli Suominen <ssuominen@gentoo.org>
+  systemsettings-4.3.1.ebuild:
+  amd64 stable wrt #287697
+
+  08 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.3.0.ebuild:
+  Drop KDE 4.3.0
+
+*systemsettings-4.3.2 (06 Oct 2009)
+
+  06 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.3.2.ebuild:
+  Version bump
+
+  06 Oct 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  systemsettings-4.2.4.ebuild, systemsettings-4.3.0.ebuild,
+  systemsettings-4.3.1.ebuild:
+  Fix dependency on xkbdata.
+
+  19 Sep 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  -files/20_use_dejavu_as_default_font.patch, systemsettings-4.2.4.ebuild,
+  systemsettings-4.3.0.ebuild, systemsettings-4.3.1.ebuild:
+  Remove dep on the dejavu fonts.
+
+*systemsettings-4.3.1 (01 Sep 2009)
+
+  01 Sep 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  +systemsettings-4.3.1.ebuild:
+  Version bump
+
+  04 Aug 2009; Alex Alexander <wired@gentoo.org> ChangeLog:
+  manifest update (upstream tarball changed)
+
+*systemsettings-4.3.0 (04 Aug 2009)
+
+  04 Aug 2009; Alex Alexander <wired@gentoo.org>
+  +systemsettings-4.3.0.ebuild:
+  Version bump
+
+  19 Jul 2009; Alex Alexander <wired@gentoo.org>
+  +files/10_xklavier_adaptor_fix.patch, systemsettings-4.2.4.ebuild:
+  added patch for xklavier-4.0, b.k.o. #199740
+
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.3.ebuild:
+  Drop KDE 4.2.3
+
+  05 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> ChangeLog:
+  Fix accidently added keywords
+
+*systemsettings-4.2.4 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.2.4.ebuild:
+  Version bump
+
+  03 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.2.ebuild:
+  Drop KDE 4.2.2
+
+  16 May 2009; Robin H. Johnson <robbat2@gentoo.org>
+  systemsettings-4.2.2.ebuild, systemsettings-4.2.3.ebuild:
+  Migration to virtual/libusb. Verified by code inspection.
+
+*systemsettings-4.2.3 (07 May 2009)
+
+  07 May 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +systemsettings-4.2.3.ebuild:
+  Version bump
+
+  05 May 2009; Rémi Cardona <remi@gentoo.org> systemsettings-4.2.2.ebuild:
+  drop x11-misc/xkbdata support (see bug #196650)
+
+  17 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.1.ebuild, -systemsettings-4.2.1-r1.ebuild,
+  systemsettings-4.2.2:
+  Restore ~hppa keywords
+
+  16 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.1.ebuild, -systemsettings-4.2.1-r1.ebuild:
+  Drop KDE 4.2.1
+
+  14 Apr 2009; Gordon Malm <gengor@gentoo.org>
+  -files/systemsettings-4.0.2-opengl.patch,
+  -files/systemsettings-enable-admin-mode.patch,
+  systemsettings-4.2.2.ebuild:
+  Remove stale files in FILESDIR, add patch to enable compile with <gcc-4.1.2
+  (bug #256827)
+
+  13 Apr 2009; Gordon Malm <gengor@gentoo.org>
+  +files/systemsettings-4.2.1-kxkb-strip-hot_plugging-support.patch,
+  systemsettings-4.2.1-r1.ebuild:
+  Add patch to enable compile with <gcc-4.1.2.
+
+*systemsettings-4.2.2 (11 Apr 2009)
+
+  11 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.2.2.ebuild:
+  Add KDE 4.2.2
+
+  11 Apr 2009; Raúl Porcel <armin76@gentoo.org>
+  systemsettings-4.2.1-r1.ebuild:
+  Add ~alpha/~ia64 wrt #260777
+
+  11 Apr 2009; Jeroen Roovers <jer@gentoo.org>
+  systemsettings-4.2.1-r1.ebuild:
+  Marked ~hppa (bug #260777).
+
+*systemsettings-4.2.1-r1 (15 Mar 2009)
+
+  15 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +systemsettings-4.2.1-r1.ebuild:
+  Automatic-merge: merge updates for 4.2.1 from kde-testing.
+
+  08 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.0.ebuild, -systemsettings-4.2.0-r1.ebuild:
+  Drop KDE 4.2.0
+
+  08 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.2.0.ebuild, -systemsettings-4.2.0-r1.ebuild:
+  Drop KDE 4.2.0
+
+*systemsettings-4.2.1 (04 Mar 2009)
+
+  04 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.2.1.ebuild:
+  Bump KDE 4.2.1
+
+*systemsettings-4.2.0-r1 (17 Feb 2009)
+
+  17 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +files/20_use_dejavu_as_default_font.patch,
+  +systemsettings-4.2.0-r1.ebuild:
+  Add patch for default font setting, so user will have allways readable
+  font by default.
+
+  17 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.1.4.ebuild:
+  Drop KDE 4.1.4
+
+  01 Feb 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  systemsettings-4.2.0.ebuild:
+  Restored ~ppc and ~ppc64 keywords to KDE-4.2.0
+
+*systemsettings-4.2.0 (27 Jan 2009)
+
+  27 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.2.0.ebuild:
+  Bump KDE-4.2.0
+
+  14 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -systemsettings-4.1.2.ebuild, -systemsettings-4.1.3.ebuild:
+  Drop KDE 4.1.2 and 4.1.3
+
+*systemsettings-4.1.4 (13 Jan 2009)
+
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +systemsettings-4.1.4.ebuild:
+  Bump to 4.1.4
+
+  15 Nov 2008; Mike Frysinger <vapier@gentoo.org>
+  systemsettings-4.1.3.ebuild:
+  Add ppc/ppc64 love #244306.
+
+*systemsettings-4.1.3 (08 Nov 2008)
+
+  08 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  +systemsettings-4.1.3.ebuild:
+  Version bump.
+
+  21 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  -systemsettings-4.0.4.ebuild, -systemsettings-4.0.5.ebuild:
+  Removing KDE-4.0.X packages now that 4.1.2 was put in the tree.
+
+*systemsettings-4.1.2 (02 Oct 2008)
+
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +files/systemsettings-enable-admin-mode.patch, metadata.xml,
+  +systemsettings-4.1.2.ebuild:
+  Added a missing patch file.
+
+  09 Jun 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  -systemsettings-4.0.2.ebuild, -systemsettings-4.0.3.ebuild:
+  Removed old versions.
+
+*systemsettings-4.0.5 (05 Jun 2008)
+
+  05 Jun 2008; Tobias Heinlein <keytoaster@gentoo.org>
+  +systemsettings-4.0.5.ebuild:
+  Added the KDE 4.0.5 version of systemsettings.
+
+*systemsettings-4.0.4 (15 May 2008)
+
+  15 May 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  +systemsettings-4.0.4.ebuild:
+  Added KDE 4.0.4 version of systemsettings. Thanks to Jorge Manuel B. S.
+  Vicetto.
+
+*systemsettings-4.0.3 (03 Apr 2008)
+
+  03 Apr 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +systemsettings-4.0.3.ebuild:
+  Version bump to KDE 4.0.3. This is still not intended for mainstream so DO
+  NOT KEYWORD IT without talking to the KDE herd first.
+
+  20 Mar 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/systemsettings-4.0.1-opengl.patch, -systemsettings-4.0.1.ebuild:
+  Old.
+
+  20 Mar 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/systemsettings-4.0.1-opengl.patch, -systemsettings-4.0.1.ebuild:
+  Old.
+
+*systemsettings-4.0.2 (10 Mar 2008)
+
+  10 Mar 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +files/systemsettings-4.0.2-opengl.patch, +systemsettings-4.0.2.ebuild:
+  Version bump to KDE 4.0.2
+
+  16 Feb 2008; Ingmar Vanhassel <ingmar@gentoo.org>
+  -files/systemsettings-4.0.0-opengl.patch, -systemsettings-4.0.0.ebuild:
+  Spring cleaning
+
+*systemsettings-4.0.1 (06 Feb 2008)
+
+  06 Feb 2008; Wulf C. Krueger <philantrop@gentoo.org>
+  +files/systemsettings-4.0.1-opengl.patch, +systemsettings-4.0.1.ebuild:
+  Version bump to KDE 4.0.1.
+
+  01 Feb 2008; Bo Ørsted Andresen <zlin@gentoo.org>
+  systemsettings-4.0.0.ebuild:
+  Readd setxkbmap and xkeyboard-config to RDEPEND (bug #208049).
+
+  27 Jan 2008; Bo Ørsted Andresen <zlin@gentoo.org>
+  +files/systemsettings-4.0.0-opengl.patch, systemsettings-4.0.0.ebuild:
+  Fix compilation with USE=-opengl. For bug #206517. Fix a typo.
+
+*systemsettings-4.0.0 (18 Jan 2008)
+
+  18 Jan 2008; Ingmar Vanhassel <ingmar@gentoo.org> +metadata.xml,
+  +systemsettings-4.0.0.ebuild:
+  Added KDE 4.0.0's systemsettings.
+

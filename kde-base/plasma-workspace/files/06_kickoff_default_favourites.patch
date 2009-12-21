@@ -1,0 +1,11 @@
+--- kdebase-workspace-4.2.1a/plasma/applets/kickoff/core/favoritesmodel.cpp	2008-12-21 20:19:15.000000000 +0000
++++ kdebase-workspace-4.2.1a/plasma/applets/kickoff/core/favoritesmodel.cpp	2009-03-27 18:45:02.000000000 +0000
+@@ -91,7 +91,7 @@
+     }
+     static QList<QString> defaultFavorites() {
+         QList<QString> applications;
+-        applications << "konqbrowser" << "kmail" << "systemsettings" << "dolphin";
++        applications << "dolphin" << "konqbrowser" << "kopete" << "KMail" << "systemsettings" << "shaman" << "konsole";
+ 
+         QList<QString> desktopFiles;
+ 

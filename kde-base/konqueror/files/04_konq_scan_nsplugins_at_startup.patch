@@ -1,0 +1,31 @@
+diff -Nur kdebase-4.2.2/apps/konqueror/src/konqmain.cpp kdebase-4.2.2.new/apps/konqueror/src/konqmain.cpp
+--- kdebase-4.2.2/apps/konqueror/src/konqmain.cpp	2008-11-12 17:37:08.000000000 +0100
++++ kdebase-4.2.2.new/apps/konqueror/src/konqmain.cpp	2009-04-16 14:05:37.000000000 +0200
+@@ -24,6 +24,7 @@
+ #include "konqsessionmanager.h"
+ #include "konqview.h"
+ #include "konqsettingsxt.h"
++#include "kprocess.h"
+ 
+ #include <ktemporaryfile.h>
+ #include <klocale.h>
+@@ -254,6 +255,19 @@
+   }
+   args->clear();
+ 
++  // FIX: Execute nspluginscan if available, so that users won't have
++  // to run it manually (see LP: #349728
++  KProcess nspluginscan;
++  nspluginscan.setOutputChannelMode(KProcess::SeparateChannels);
++  QString scanExe = KGlobal::dirs()->findExe("nspluginscan");
++  if (scanExe.isEmpty()) {
++      kDebug() << "can't find nspluginviewer";
++  }
++  // start nspluginscan
++  nspluginscan << scanExe;
++  kDebug() << "Running nspluginscan";
++  nspluginscan.start();
++
+   app.exec();
+ 
+   // Delete all KonqMainWindows, so that we don't have

@@ -1,0 +1,44 @@
+diff -ur kdebase-workspace-4.2.95/systemsettings/core/ModuleView.cpp kdebase-workspace-4.2.95-rootprivs/systemsettings/core/ModuleView.cpp
+--- kdebase-workspace-4.2.95/systemsettings/core/ModuleView.cpp	2009-06-23 13:14:38.000000000 +0200
++++ kdebase-workspace-4.2.95-rootprivs/systemsettings/core/ModuleView.cpp	2009-06-29 19:39:01.000000000 +0200
+@@ -39,6 +39,7 @@
+ #include <KCModuleProxy>
+ #include <KStandardGuiItem>
+ #include <KDialogButtonBox>
++#include <KStandardDirs>
+ 
+ #include "MenuItem.h"
+ 
+@@ -124,6 +125,32 @@
+       return;
+     }
+ 
++    if ( menuItem->service()->property( "X-KDE-RootOnly", QVariant::Bool ).toBool() ) {
++        QString kdesu = KStandardDirs::findExe( "kdesu" );
++        QString cmd = menuItem->service()->exec().trimmed();
++
++        /* Prepare the process to run the kcmshell */
++        if ( cmd.left(5) == "kdesu" )
++        {
++            cmd = cmd.remove(0,5).trimmed();
++
++            /* Remove all kdesu switches */
++            while ( cmd.length() > 1 && cmd[ 0 ] == '-' )
++                cmd = cmd.remove( 0, cmd.indexOf( ' ' ) ).trimmed();
++        }
++
++        if ( cmd.left(9) == "kcmshell4" )
++            cmd = cmd.remove(0,9).trimmed();
++
++        QStringList args;
++        args << "-i" << QString( "/usr/share/icons/oxygen/32x32/apps/%1.png" ).arg( menuItem->service()->icon() ) << "-c" << QString( "%1 %2 --lang %3" ).arg( KStandardDirs::locate("exe", "kcmshell4") ).arg( cmd ).arg( KGlobal::locale()->language() );
++
++        kDebug() << "Starting root module: " << args;
++        QProcess::startDetached( kdesu, args );
++
++        return;
++    }
++
+     QList<KCModuleInfo*> modules;
+     if ( menuItem->children().empty() ) {
+         modules << &menuItem->item();

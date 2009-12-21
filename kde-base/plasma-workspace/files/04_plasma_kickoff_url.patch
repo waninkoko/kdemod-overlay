@@ -1,0 +1,12 @@
+diff -Naur kdebase-workspace-4.2.87.orig/plasma/applets/kickoff/ui/brandingbutton.cpp kdebase-workspace-4.2.87/plasma/applets/kickoff/ui/brandingbutton.cpp
+--- kdebase-workspace-4.2.87.orig/plasma/applets/kickoff/ui/brandingbutton.cpp	2009-05-25 05:52:37.000000000 +0200
++++ kdebase-workspace-4.2.87/plasma/applets/kickoff/ui/brandingbutton.cpp	2009-05-25 08:21:42.000000000 +0200
+@@ -69,7 +69,7 @@
+ void BrandingButton::openHomepage()
+ {
+     //FIXME: 4.3 .. add a brandingConfig to Theme
+-    KUrl home("http://www.kde.org");
++    KUrl home("http://www.chakra-project.org");
+     QString themePath = KStandardDirs::locate("data", "desktoptheme/" +
+                                               Plasma::Theme::defaultTheme()->themeName() +
+                                               "/metadata.desktop");

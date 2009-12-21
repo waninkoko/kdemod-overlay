@@ -1,0 +1,16 @@
+diff -ur kdebase-workspace-4.3.0/plasma/applets/battery/battery.cpp kdebase-workspace-4.3.0-battery-plasmoid-showremainingtime/plasma/applets/battery/battery.cpp
+--- kdebase-workspace-4.3.0/plasma/applets/battery/battery.cpp	2009-07-08 16:45:03.000000000 +0200
++++ kdebase-workspace-4.3.0-battery-plasmoid-showremainingtime/plasma/applets/battery/battery.cpp	2009-08-03 06:43:04.000000000 +0200
+@@ -530,7 +530,11 @@
+             QString state = battery_data.value()["State"].toString();
+             m_remainingMSecs = battery_data.value()["Remaining msec"].toInt();
+             //kDebug() << "time left:" << m_remainingMSecs;
+-            if (state == "Discharging" && m_remainingMSecs > 0 && m_showRemainingTime) {
++            // Always show the remaining time in the popup (like KDE 4.2.x did).
++            // We don't just set m_showRemainingTime to true by default because
++            // that'd try to use the time also for the icon. That won't fit on
++            // small panels and wasn't the default in 4.2 either.
++            if (state == "Discharging" && m_remainingMSecs > 0) {
+ 
+                 // FIXME: Somehow, m_extenderApplet is null here, so the label never becomes visible
+                 if (m_extenderApplet) {

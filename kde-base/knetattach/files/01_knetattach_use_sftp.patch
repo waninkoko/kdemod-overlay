@@ -1,0 +1,13 @@
+Index: kdebase-runtime-4.2.0/knetattach/knetattach.cpp
+===================================================================
+--- kdebase-runtime-4.2.0.orig/knetattach/knetattach.cpp	2009-01-01 12:55:21.000000000 -0330
++++ kdebase-runtime-4.2.0/knetattach/knetattach.cpp	2009-01-22 21:19:06.000000000 -0330
+@@ -181,7 +181,7 @@
+     KConfig config("kio_fishrc");
+     KConfigGroup cg(&config, _host->text().trimmed());
+     cg.writeEntry("Charset", KGlobal::charsets()->encodingForName(_encoding->currentText()));
+-	url.setProtocol("fish");
++	url.setProtocol("sftp");
+ 	url.setPort(_port->value());
+     } else if (_type == "FTP") {
+ 	url.setProtocol("ftp");

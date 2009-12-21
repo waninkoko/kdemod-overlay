@@ -1,0 +1,49 @@
+Index: plasma/applets/kickoff/simpleapplet/simpleapplet.cpp
+===================================================================
+--- plasma/applets/kickoff/simpleapplet/simpleapplet.cpp.orig
++++ plasma/applets/kickoff/simpleapplet/simpleapplet.cpp
+@@ -37,6 +37,7 @@
+ #include <QtGui/QSpacerItem>
+ #include <QtGui/QListWidget>
+ #include <QtGui/QListWidgetItem>
++#include <QFile>
+ 
+ // KDE
+ #include <KIcon>
+@@ -284,7 +285,11 @@ MenuLauncherApplet::~MenuLauncherApplet(
+ void MenuLauncherApplet::init()
+ {
+     KConfigGroup cg = config();
+-    QString iconname = "start-here-kde";
++    QString iconname;
++    if (QFile::exists("/usr/share/icons/oxygen/scalable/places/start-here-branding.svgz"))
++        iconname = "start-here-branding";
++    else
++        iconname = "start-here-kde";
+ 
+     QStringList viewtypes = cg.readEntry("views", QStringList());
+     if(viewtypes.isEmpty()) { // backward-compatibility to <KDE4.3
+Index: plasma/applets/kickoff/applet/applet.cpp
+===================================================================
+--- plasma/applets/kickoff/applet/applet.cpp.orig
++++ plasma/applets/kickoff/applet/applet.cpp
+@@ -28,6 +28,7 @@
+ #include <QtGui/QVBoxLayout>
+ #include <QtGui/QLabel>
+ #include <QtGui/QGraphicsLinearLayout>
++#include <QFile>
+ 
+ // KDE
+ #include <KIcon>
+@@ -106,7 +107,10 @@ LauncherApplet::~LauncherApplet()
+ void LauncherApplet::init()
+ {
+     KConfigGroup cg = config();
+-    setPopupIcon(cg.readEntry("icon", "start-here-kde"));
++    if (QFile::exists("/usr/share/icons/oxygen/scalable/places/start-here-branding.svgz"))
++      setPopupIcon(cg.readEntry("icon", "start-here-branding"));
++    else
++      setPopupIcon(cg.readEntry("icon", "start-here-kde"));
+ 
+     if (KService::serviceByStorageId("kde4-kmenuedit.desktop")) {
+         QAction* menueditor = new QAction(i18n("Menu Editor"), this);

@@ -1,0 +1,232 @@
+# ChangeLog for kde-base/plasma-workspace
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/kde-base/plasma-workspace/ChangeLog,v 1.48 2009/12/10 23:49:11 scarabeus Exp $
+
+  10 Dec 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  -plasma-workspace-4.3.1.ebuild:
+  Drop KDE SC-4.3.1.
+
+  10 Dec 2009; Christian Faulhammer <fauli@gentoo.org>
+  plasma-workspace-4.3.3-r1.ebuild:
+  x86 stable, bug 292455
+
+*plasma-workspace-4.3.4 (01 Dec 2009)
+
+  01 Dec 2009; Alex Alexander <wired@gentoo.org>
+  +plasma-workspace-4.3.4.ebuild:
+  Version bump
+
+  30 Nov 2009; Joseph Jezak <josejx@gentoo.org>
+  plasma-workspace-4.3.3-r1.ebuild:
+  Marked ppc/ppc64 stable for bug #292455.
+
+  29 Nov 2009; Raúl Porcel <armin76@gentoo.org>
+  plasma-workspace-4.3.3-r1.ebuild:
+  Add ~sparc
+
+  29 Nov 2009; Samuli Suominen <ssuominen@gentoo.org>
+  plasma-workspace-4.3.3-r1.ebuild:
+  amd64 stable wrt #292455
+
+*plasma-workspace-4.3.3-r1 (22 Nov 2009)
+
+  22 Nov 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  +files/4.3.3-progress_indicator.patch, -plasma-workspace-4.3.3.ebuild,
+  +plasma-workspace-4.3.3-r1.ebuild:
+  Revision bump to fix indicator issues per bug #292235.
+
+  22 Nov 2009; Tomáš Chvátal <scarabeus@gentoo.org>
+  plasma-workspace-4.3.3.ebuild:
+  Add semantic-desktop useflag. Per bug #257070.
+
+  09 Nov 2009; Jonathan Callen <abcd@gentoo.org>
+  -files/plasma-workspace-fake-panel-transparency.patch:
+  Drop unneeded patch
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.3.2.ebuild:
+  Drop KDE 4.3.2
+
+  08 Nov 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.4.ebuild:
+  Drop KDE 4.2.4
+
+*plasma-workspace-4.3.3 (02 Nov 2009)
+
+  02 Nov 2009; Alex Alexander <wired@gentoo.org>
+  +plasma-workspace-4.3.3.ebuild:
+  Version bump
+
+  18 Oct 2009; Markus Meier <maekke@gentoo.org>
+  plasma-workspace-4.3.1.ebuild:
+  x86 stable, bug #287697
+
+  10 Oct 2009; Samuli Suominen <ssuominen@gentoo.org>
+  plasma-workspace-4.3.1.ebuild:
+  amd64 stable wrt #287697
+
+  08 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.3.0.ebuild:
+  Drop KDE 4.3.0
+
+*plasma-workspace-4.3.2 (06 Oct 2009)
+
+  06 Oct 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.3.2.ebuild:
+  Version bump
+
+  07 Sep 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-workspace-4.3.1.ebuild:
+  Synced ebuild from the kde-testing overlay - thanks to Maciej Mrozowski
+  (reavertm).
+  [kde-base/plasma-workspace] Fixed bug 283738 (missing dependency on
+  plasma-runtime.
+
+*plasma-workspace-4.3.1 (01 Sep 2009)
+
+  01 Sep 2009; Theo Chatzimichos <tampakrap@gentoo.org>
+  +plasma-workspace-4.3.1.ebuild:
+  Version bump
+
+  04 Aug 2009; Alex Alexander <wired@gentoo.org> ChangeLog:
+  manifest update (upstream tarball changed)
+
+*plasma-workspace-4.3.0 (04 Aug 2009)
+
+  04 Aug 2009; Alex Alexander <wired@gentoo.org>
+  +plasma-workspace-4.3.0.ebuild:
+  Version bump
+
+  22 Jul 2009; Alex Alexander <wired@gentoo.org>
+  plasma-workspace-4.2.4.ebuild:
+  comment typo fix
+
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -files/4.2.1-panelview-crash-fix.patch, -files/4.2-fix-quicklaunch.patch:
+  Clean unneeded patches
+
+  14 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.3.ebuild:
+  Drop KDE 4.2.3
+
+  05 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org> ChangeLog:
+  Fix accidently added keywords
+
+  04 Jun 2009; Markos Chandras <hwoarang@gentoo.org>
+  plasma-workspace-4.2.3.ebuild, plasma-workspace-4.2.4.ebuild:
+  Adjust correct PyQt4 dependencies ( bug 272136 ). Fixes bug 272172
+
+*plasma-workspace-4.2.4 (04 Jun 2009)
+
+  04 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.2.4.ebuild:
+  Version bump
+
+  03 Jun 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.2.ebuild:
+  Drop KDE 4.2.2
+
+*plasma-workspace-4.2.3 (07 May 2009)
+
+  07 May 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +plasma-workspace-4.2.3.ebuild:
+  Version bump
+
+  17 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.1.ebuild, -plasma-workspace-4.2.1-r1.ebuild,
+  plasma-workspace-4.2.2:
+  Restore ~hppa keywords
+
+  16 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.1.ebuild, -plasma-workspace-4.2.1-r1.ebuild:
+  Drop KDE 4.2.1
+
+  14 Apr 2009; Tomas Chvatal <scarabeus@gentoo.org> metadata.xml:
+  Update metadata.
+
+  12 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +files/plasma-workspace-fake-panel-transparency.patch:
+  add missing patches; thanks to winterheart
+
+*plasma-workspace-4.2.2 (11 Apr 2009)
+
+  11 Apr 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.2.2.ebuild:
+  Add KDE 4.2.2
+
+  11 Apr 2009; Raúl Porcel <armin76@gentoo.org>
+  plasma-workspace-4.2.1-r1.ebuild:
+  Add ~alpha/~ia64 wrt #260777
+
+  11 Apr 2009; Jeroen Roovers <jer@gentoo.org>
+  plasma-workspace-4.2.1-r1.ebuild:
+  Marked ~hppa (bug #260777).
+
+  15 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +files/4.2-fix-quicklaunch.patch:
+  Add missing patch.
+
+*plasma-workspace-4.2.1-r1 (15 Mar 2009)
+
+  15 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +plasma-workspace-4.2.1-r1.ebuild:
+  Automatic-merge: merge updates for 4.2.1 from kde-testing.
+
+  08 Mar 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  +files/4.2.1-panelview-crash-fix.patch, plasma-workspace-4.2.1.ebuild:
+  Add panelview crash fix per bug #261460.
+
+  08 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.2.0.ebuild:
+  Drop KDE 4.2.0
+
+*plasma-workspace-4.2.1 (04 Mar 2009)
+
+  04 Mar 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.2.1.ebuild:
+  Bump KDE 4.2.1
+
+  19 Feb 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.1.4.ebuild:
+  Drop stale kde 4.1.4
+
+  15 Feb 2009; Tomas Chvatal <scarabeus@gentoo.org>
+  plasma-workspace-4.2.0.ebuild:
+  Update deps. Per bug #257908.
+
+  01 Feb 2009; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  plasma-workspace-4.2.0.ebuild:
+  Restored ~ppc and ~ppc64 keywords to KDE-4.2.0
+
+*plasma-workspace-4.2.0 (27 Jan 2009)
+
+  27 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.2.0.ebuild:
+  Bump KDE-4.2.0
+
+  14 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  -plasma-workspace-4.1.2.ebuild, -plasma-workspace-4.1.3.ebuild:
+  Drop KDE 4.1.2 and 4.1.3
+
+*plasma-workspace-4.1.4 (13 Jan 2009)
+
+  13 Jan 2009; Alexey Shvetsov <alexxy@gentoo.org>
+  +plasma-workspace-4.1.4.ebuild:
+  Bump to 4.1.4
+
+  15 Nov 2008; Mike Frysinger <vapier@gentoo.org>
+  plasma-workspace-4.1.3.ebuild:
+  Add ppc/ppc64 love #244306.
+
+*plasma-workspace-4.1.3 (08 Nov 2008)
+
+  08 Nov 2008; Tomas Chvatal <scarabeus@gentoo.org>
+  +plasma-workspace-4.1.3.ebuild:
+  Version bump.
+
+*plasma-workspace-4.1.2 (02 Oct 2008)
+
+  02 Oct 2008; Jorge Manuel B. S. Vicetto <jmbsvicetto@gentoo.org>
+  +metadata.xml, +plasma-workspace-4.1.2.ebuild:
+  Add kde-4.1.2 into the tree from the kde-testing overlay.
+

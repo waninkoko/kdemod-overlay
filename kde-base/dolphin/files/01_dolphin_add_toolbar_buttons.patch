@@ -1,0 +1,44 @@
+diff -Naur kdebase-4.3.0.orig/apps/dolphin/src/dolphinui.rc kdebase-4.3.0/apps/dolphin/src/dolphinui.rc
+--- kdebase-4.3.0.orig/apps/dolphin/src/dolphinui.rc	2009-04-20 19:52:21.000000000 +0200
++++ kdebase-4.3.0/apps/dolphin/src/dolphinui.rc	2009-07-31 21:29:47.000000000 +0200
+@@ -118,20 +118,24 @@
+             <Action name="invert_selection" />
+         </disable>
+     </State>
+-    <ToolBar noMerge="1" name="mainToolBar" >
+-        <text context="@title:menu">Main Toolbar</text>
+-        <Action name="go_back" />
+-        <Action name="go_forward" />
+-        <Separator name="separator_1" />
+-        <Action name="icons" />
+-        <Action name="details" />
+-        <Action name="columns" />
+-        <Separator name="separator_0" />
+-        <Action name="show_preview" />
+-        <Action name="split_view" />
+-    </ToolBar>
+-    <ToolBar iconText="icononly" name="searchToolBar" newline="false">
+-        <text context="@title:menu">Search Toolbar</text>
+-        <Action name="search_bar" />
+-    </ToolBar>
++    <ToolBar noMerge="1" iconText="icononly" name="mainToolBar" >
++           <Action name="new_tab" />
++           <Separator name="separator_0" />
++           <text context="@title:menu" >Main Toolbar</text>
++           <Action name="go_back" />
++           <Action name="go_forward" />
++           <Action name="go_up" />
++           <Action name="reload" />
++           <Separator name="separator_1" />
++           <Action name="icons" />
++           <Action name="details" />
++           <Action name="columns" />
++           <Separator name="separator_2" />
++           <Action name="show_preview" />
++           <Action name="split_view" />
++     </ToolBar>
++     <ToolBar iconText="icononly" name="searchToolBar" newline="false" >
++           <text context="@title:menu" >Search Toolbar</text>
++           <Action name="search_bar" />
++     </ToolBar>
+ </kpartgui>

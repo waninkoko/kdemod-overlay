@@ -1,0 +1,24 @@
+diff -Naur kdelibs-3.97.0.orig/kdeui/dialogs/kaboutapplicationdialog.cpp kdelibs-3.97.0/kdeui/dialogs/kaboutapplicationdialog.cpp
+--- kdelibs-3.97.0.orig/kdeui/dialogs/kaboutapplicationdialog.cpp	2007-10-31 21:35:28.000000000 +0100
++++ kdelibs-3.97.0/kdeui/dialogs/kaboutapplicationdialog.cpp	2007-12-18 21:58:48.000000000 +0100
+@@ -80,7 +80,7 @@
+     else if (aboutData->programLogo().canConvert<QImage>())
+         titleWidget->setPixmap(QPixmap::fromImage(aboutData->programLogo().value<QImage>()), KTitleWidget::ImageLeft);
+ 
+-    titleWidget->setText(i18n("<html><font size=\"5\">%1</font><br /><b>Version %2</b><br />Using KDE %3</html>",
++    titleWidget->setText(i18n("<html><font size=\"5\">%1</font><br /><b>Version %2</b><br />Using KDE %3 (KDEmod)</html>",
+                          aboutData->programName(), aboutData->version(), QString(KDE_VERSION_STRING)));
+ 
+     QTabWidget *tabWidget = new QTabWidget;
+diff -Naur kdelibs-3.97.0.orig/kdeui/dialogs/kaboutkdedialog_p.cpp kdelibs-3.97.0/kdeui/dialogs/kaboutkdedialog_p.cpp
+--- kdelibs-3.97.0.orig/kdeui/dialogs/kaboutkdedialog_p.cpp	2007-10-03 12:50:14.000000000 +0200
++++ kdelibs-3.97.0/kdeui/dialogs/kaboutkdedialog_p.cpp	2007-12-18 21:59:39.000000000 +0100
+@@ -46,7 +46,7 @@
+     setModal(false);
+ 
+     KTitleWidget *titleWidget = new KTitleWidget(this);
+-    titleWidget->setText(i18n("<html><font size=\"5\">K Desktop Environment</font><br /><b>Version %1</b></html>",
++    titleWidget->setText(i18n("<html><font size=\"5\">K Desktop Environment</font><br /><b>Version %1 (KDEmod)</b></html>",
+                          QString(KDE_VERSION_STRING)));
+     titleWidget->setPixmap(KIcon("start-here").pixmap(48), KTitleWidget::ImageLeft);
+ 

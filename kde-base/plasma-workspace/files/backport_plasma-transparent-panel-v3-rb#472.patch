@@ -1,0 +1,211 @@
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/containments/panel/panel.cpp kdebase-workspace-4.2.95/plasma/containments/panel/panel.cpp
+--- kdebase-workspace-4.2.95.orig/plasma/containments/panel/panel.cpp	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/containments/panel/panel.cpp	2009-06-26 11:52:00.000000000 +0000
+@@ -104,7 +104,8 @@
+       m_canResize(true),
+       m_spacerIndex(-1),
+       m_spacer(0),
+-      m_lastSpace(0)
++      m_lastSpace(0),
++      m_blendInterface(false)
+ {
+     m_background = new Plasma::FrameSvg(this);
+     m_background->setImagePath("widgets/panel-background");
+@@ -653,6 +654,10 @@
+     }
+ }
+ 
++void Panel::setBlendInterface(bool blend) {
++    m_blendInterface = blend;
++}
++
+ void Panel::saveState(KConfigGroup &config) const
+ {
+     config.writeEntry("minimumSize", minimumSize());
+@@ -722,8 +727,8 @@
+         }
+     }
+ 
+-    // blit the background (saves all the per-pixel-products that blending does)
+-    painter->setCompositionMode(QPainter::CompositionMode_Source);
++    // blit the background (saves all per-pixel-products that blending does)
++    painter->setCompositionMode(m_blendInterface ? QPainter::CompositionMode_SourceOver : QPainter::CompositionMode_Source);
+     painter->setRenderHint(QPainter::Antialiasing);
+ 
+     m_background->paintFrame(painter, option->exposedRect);
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/containments/panel/panel.h kdebase-workspace-4.2.95/plasma/containments/panel/panel.h
+--- kdebase-workspace-4.2.95.orig/plasma/containments/panel/panel.h	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/containments/panel/panel.h	2009-06-26 11:45:07.000000000 +0000
+@@ -55,6 +55,9 @@
+ protected:
+     void saveState(KConfigGroup &config) const;
+ 
++public slots:
++    void setBlendInterface(bool);
++    
+ private slots:
+     void themeUpdated();
+     void backgroundChanged();
+@@ -91,6 +94,7 @@
+     Spacer *m_spacer;
+     Spacer *m_lastSpace;
+     QTimer *m_lastSpaceTimer;
++    bool m_blendInterface;
+ 
+     friend class Spacer;
+ };
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/desktopview.cpp kdebase-workspace-4.2.95/plasma/shells/desktop/desktopview.cpp
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/desktopview.cpp	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/desktopview.cpp	2009-06-26 11:45:07.000000000 +0000
+@@ -44,6 +44,7 @@
+ #include "dashboardview.h"
+ #include "plasmaapp.h"
+ #include "plasma-shell-desktop.h"
++#include "panelview.h"
+ 
+ #ifdef Q_WS_WIN
+ #include "windows.h"
+@@ -445,6 +446,15 @@
+     }
+ }
+ 
++void DesktopView::paintEvent(QPaintEvent* event) {
++    foreach(PanelView* view, PlasmaApp::self()->panelViews()) {
++        QRect intersection = view->geometry() & QRect(mapToGlobal(event->rect().topLeft()), mapToGlobal(event->rect().bottomRight()));
++        if(!intersection.isEmpty())
++            view->undergroundChanged(QRect(view->mapFromGlobal(intersection.topLeft()), view->mapFromGlobal(intersection.bottomRight())));
++    }
++    QGraphicsView::paintEvent(event);
++}
++
+ void DesktopView::wheelEvent(QWheelEvent* event)
+ {
+     QGraphicsItem * item = scene() ? scene()->itemAt(sceneRect().topLeft() + event->pos()) : 0;
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/desktopview.h kdebase-workspace-4.2.95/plasma/shells/desktop/desktopview.h
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/desktopview.h	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/desktopview.h	2009-06-26 11:45:07.000000000 +0000
+@@ -116,6 +116,7 @@
+     void updateShortcuts();
+ 
+ protected:
++    void paintEvent(QPaintEvent* event);
+     void wheelEvent(QWheelEvent *event);
+     void drawBackground(QPainter *painter, const QRectF &rect);
+ 
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/panelview.cpp kdebase-workspace-4.2.95/plasma/shells/desktop/panelview.cpp
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/panelview.cpp	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/panelview.cpp	2009-06-26 11:45:07.000000000 +0000
+@@ -44,6 +44,7 @@
+ #include "plasmaapp.h"
+ 
+ #include <kephal/screens.h>
++#include "desktopview.h"
+ 
+ class GlowBar : public QWidget
+ {
+@@ -1275,13 +1276,43 @@
+     Plasma::View::leaveEvent(event);
+ }
+ 
+-void PanelView::drawBackground(QPainter *painter, const QRectF &rect)
+-{
+-    if (PlasmaApp::hasComposite()) {
+-        painter->setCompositionMode(QPainter::CompositionMode_Source);
+-        painter->fillRect(rect.toAlignedRect(), Qt::transparent);
+-    } else {
+-        Plasma::View::drawBackground(painter, rect);
++bool useDesktopTransparency = true;
++
++void PanelView::undergroundChanged(QRect area) {
++    if(!PlasmaApp::hasComposite() && useDesktopTransparency)
++        update(area);
++}
++
++void PanelView::drawBackground(QPainter *painter, const QRectF &_rect)
++{
++      QRectF rect(_rect);
++      DesktopView* desktopView = PlasmaApp::self()->viewForPanel(this);
++      if(containment())
++          QMetaObject::invokeMethod(containment(), "setBlendInterface", Q_ARG(bool, false));
++
++      if (PlasmaApp::hasComposite()) {
++          painter->setCompositionMode(QPainter::CompositionMode_Source);
++          painter->fillRect(rect.toAlignedRect(), Qt::transparent);
++      } else if(desktopView && useDesktopTransparency) {
++          painter->setCompositionMode(QPainter::CompositionMode_Source);
++
++          //Map 'rect' from the panel into the desktop view
++          QRectF desktopRect = mapFromScene(rect).boundingRect();
++          desktopRect.translate(pos().x(), pos().y());
++          desktopRect.translate(-desktopView->pos().x(), -desktopView->pos().y());
++          QRect grab = desktopRect.toRect();
++          grab &= QRect(QPoint(0, 0), desktopView->size()); //Sometimes the scene-mapping maps one pixel too far outside, so restrict the area
++
++          useDesktopTransparency = false; //Disable desktop transparency temporarily to prevent endless updating from within undergoundChanged
++          QPixmap grabbed = QPixmap::grabWidget(desktopView, grab);
++          useDesktopTransparency = true;
++
++          painter->drawPixmap(rect, grabbed, QRectF(0, 0, grab.width(), grab.height()));
++
++      if(containment()) //Tell the panel to blend the interface over the background, so it isn't discarded
++          QMetaObject::invokeMethod(containment(), "setBlendInterface", Q_ARG(bool, true));
++      }else{
++          Plasma::View::drawBackground(painter, rect);
+     }
+ }
+ 
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/panelview.h kdebase-workspace-4.2.95/plasma/shells/desktop/panelview.h
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/panelview.h	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/panelview.h	2009-06-26 11:45:07.000000000 +0000
+@@ -182,6 +182,11 @@
+      * Called when a new applet is added into the view's containment
+      */
+     void appletAdded(Plasma::Applet *applet);
++    
++    /**
++     * Notification that the undergound of this panel-view has changed
++     */
++    void undergroundChanged(QRect area);
+ 
+ protected Q_SLOTS:
+     void updateStruts();
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/plasmaapp.cpp kdebase-workspace-4.2.95/plasma/shells/desktop/plasmaapp.cpp
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/plasmaapp.cpp	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/plasmaapp.cpp	2009-06-26 11:45:07.000000000 +0000
+@@ -519,6 +519,21 @@
+     }
+ }
+ 
++DesktopView* PlasmaApp::viewForPanel(PanelView* panel) const {
++
++    int currentDesktop = -1;
++    if (AppSettings::perVirtualDesktopViews())
++        currentDesktop = KWindowSystem::currentDesktop()-1;
++    
++  
++    foreach (DesktopView *view, m_desktops)
++        if((view->desktop() == currentDesktop || currentDesktop == -1) && !(view->geometry() & panel->geometry()).isEmpty())
++            if(!view->isHidden())
++                return view;
++
++    return 0;
++}
++
+ DesktopView* PlasmaApp::viewForScreen(int screen, int desktop) const
+ {
+     foreach (DesktopView *view, m_desktops) {
+diff -Naur kdebase-workspace-4.2.95.orig/plasma/shells/desktop/plasmaapp.h kdebase-workspace-4.2.95/plasma/shells/desktop/plasmaapp.h
+--- kdebase-workspace-4.2.95.orig/plasma/shells/desktop/plasmaapp.h	2009-06-25 13:31:51.000000000 +0000
++++ kdebase-workspace-4.2.95/plasma/shells/desktop/plasmaapp.h	2009-06-26 11:45:07.000000000 +0000
+@@ -78,6 +78,11 @@
+      * Returns the PanelViews
+      */
+     QList<PanelView*> panelViews() const;
++    
++    /**
++     * Returns the currently active desktop that this panel is visible on, or zero
++     */
++    DesktopView* viewForPanel(PanelView* panel) const;
+ 
+     static bool isPanelContainment(Plasma::Containment *containment);
+ 
