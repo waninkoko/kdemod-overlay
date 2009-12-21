@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layman>
+  <overlay contact="mboton@gmail.com" name="kdemod" src="git://github.com/waninkoko/kdemod-overlay.git" status="unofficial" type="git">
+    <link>http://github.com/waninkoko/kdemod-overlay</link>
+    <description>KDEmod overlay</description>
+  </overlay>
+</layman>
